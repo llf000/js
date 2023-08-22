@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 取余%
+      console.log(5 % 3);
+      console.log(8 % 2);
+
+      // 求幂**
+      console.log(5 ** 3);
+      console.log(2 ** 3);
+
+      // 二元+运算符
+      let s = "my" + "string";
+      console.log(s);
+
+      console.log("1" + 2);
+      console.log(2 + 2 + "1");
+      console.log("1" + 2 + 2);
+
+      // 一元+运算符
+      let x = 1;
+      let y = -2;
+      console.log(+x, +y);
+
+      console.log(+true);
+      console.log(+"");
+
+      let apples = "2";
+      let oranges = "3";
+      console.log(apples + oranges);
+      console.log(+apples + +oranges);
+
+      // 赋值运算符
+      let a = 1,
+        b = 2;
+      let c = 3 - (a = b + 1);
+      console.log(c, a);
+      // 链式赋值
+      let a2, c2, b2;
+      a2 = b2 = c2 = 2 + 2;
+      console.log(a2, b2, c2);
+      // 原地修改
+      let a3 = 2;
+      a3 = a3 + 8;
+      console.log(a3);
+      a3 -= 2;
+      console.log(a3);
+      a3 /= 2;
+      console.log(a3);
+      a3 *= 3;
+      console.log(a3);
+      // 自增 / 自减--只能用于变量
+      a3++;
+      console.log(a3);
+
+      let counter = 1;
+      let xx = counter++; //1
+      let yy = ++counter; //3
+      console.log(xx, yy);
+
+      // 运算符优先级
+      // 一元运算符 > 二元运算符 > 赋值运算符
+
+      console.log("" + 1 + 0); // 1      10
+      console.log("" - 1 + 0); // -1
+      console.log(true + false); // 1
+      console.log(6 / "3"); // 2
+      console.log("2" * "3"); // 6
+      console.log(4 + 5 + "px"); // 9px
+      console.log("$" + 4 + 5); // NaN     $45
+      console.log("4" - 2); // 2
+      console.log("4px" - 2); // NaN
+      console.log("-9" + 5); // -4     -95
+      console.log("-9" - 5); // -14
+      console.log(null + 1); // 1
+      console.log(undefined + 1); // NaN
+      console.log("\t \n" - 2); // NaN     -2
+
+      let firstNum = prompt("first number", 1);
+      let secondNum = prompt("second number", 2);
+      alert(+firstNum + +secondNum);
+    </script>
+  </head>
+  <body></body>
+</html>

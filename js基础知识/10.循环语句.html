@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // while
+      let i = 0;
+      while (i < 3) {
+        console.log(i);
+        i++;
+      }
+
+      // do...while
+      let i2 = 0;
+      do {
+        console.log(i2);
+        i2++;
+      } while (i2 < 5);
+
+      // for
+      for (let i = 0; i < 3; i++) {
+        console.log(i);
+      }
+
+      // 跳出循环 break
+      let sum = 0;
+      while (true) {
+        let value = +prompt("Enter a number", "");
+        if (!value) break; // (*)
+        sum += value;
+      }
+      alert("Sum: " + sum);
+      // 继续下一次迭代 continue  break/continue不能出现在?的右边
+      for (let i = 0; i < 10; i++) {
+        if (i % 2 == 0) continue;
+        console.log(i);
+      }
+
+      let i3 = 0,
+        i4 = 0;
+      while (++i3 < 5) console.log(i3);
+      while (i4++ < 5) console.log(i4);
+
+      for (let i = 0; i < 5; i++) console.log(i);
+      for (let i = 0; i < 5; ++i) console.log(i);
+
+      for (let i = 0; i <= 10; i++) {
+        // if (i % 2 == 0) {
+        //   console.log(i);
+        // }
+        if (i % 2 != 0) continue;
+        console.log(i);
+      }
+
+      let num;
+      do {
+        num = prompt("输入一个大于100的数", 0);
+      } while (num <= 100 && num);
+      console.log("over");
+
+      let n = 10;
+      nextPrime: for (let i = 2; i <= n; i++) {
+        for (let j = 2; j < i; j++) {
+          if (i % j == 0) continue nextPrime;
+        }
+        console.log(i);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

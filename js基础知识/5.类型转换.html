@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 字符串转换
+      let value = true;
+      console.log(typeof value);
+      value = String(value);
+      console.log(typeof value);
+
+      //  数字型转换
+      //  number转换规则
+      //    undefined--NaN
+      //    null--0
+      //    true/false--1/0
+      //    string
+      console.log("6" / "2");
+
+      let str1 = "123";
+      let num = Number(str1);
+      console.log(typeof num);
+
+      console.log(Number("    123"));
+      console.log(Number("    123z"));
+      console.log(Number(true));
+      console.log(Number(null));
+      console.log(Number(undefined));
+
+      // 布尔型转换
+      //   0,"",null,undefined,NaM--false
+      console.log(Boolean(1));
+      console.log(Boolean(0));
+      console.log(Boolean("hello"));
+      console.log(Boolean(""));
+    </script>
+  </head>
+  <body></body>
+</html>

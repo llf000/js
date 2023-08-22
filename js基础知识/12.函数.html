@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function showMessage1() {
+        console.log("Hello everyone!");
+      }
+      showMessage1();
+
+      // 局部变量
+      let userName = "John";
+      function showMessage2() {
+        userName = "Bob";
+        let message = "Hello, " + userName;
+        console.log(message);
+      }
+      console.log(userName);
+      showMessage2();
+      console.log(userName);
+
+      // 内部变量
+      let userName2 = "LL";
+      function showMessage3() {
+        let userName2 = "Bob";
+        let message = "Hello, " + userName2;
+        console.log(message);
+      }
+      showMessage3();
+      console.log(userName2);
+
+      // 参数
+      function showMessage4(from, text) {
+        from = "*" + from + "*";
+        console.log(from + ": " + text);
+      }
+      let from = "Ann";
+      showMessage4(from, "Hello");
+      console.log(from); // Ann
+
+      // 返回值
+      function sum(a, b) {
+        return a + b;
+      }
+      let result = sum(1, 2);
+      console.log(result);
+
+      function minNum(a, b) {
+        if (a >= b) {
+          return b;
+        } else {
+          return a;
+        }
+      }
+      console.log(minNum(3, 5));
+
+      function multiply(x, n) {
+        let result = x;
+        for (let i = 1; i < n; i++) {
+          result *= x;
+        }
+        return result;
+      }
+      console.log(multiply(2, 3));
+    </script>
+  </head>
+  <body></body>
+</html>

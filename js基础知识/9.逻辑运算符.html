@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // ||或  result=a||b
+      console.log(true || true);
+      console.log(true || false);
+      console.log(false || false);
+
+      console.log(null || 2 || undefined);
+
+      let hour = 20;
+      let isWeekend = true;
+      if (hour < 10 || hour > 18 || isWeekend) {
+        alert("The office is closed");
+      }
+      //  ||寻找第一个真值 result=value1||value2|| value3
+      let firstName = "";
+      let lastName = "";
+      let nickName = "SuperCoder";
+      alert(firstName || lastName || nickName || "Anonymous");
+      // 短路求值
+      true || alert("not printed");
+      false || alert("printed");
+
+      // &&与  result=a&&b   优先级 &&>||
+      console.log(true && true);
+      console.log(true && false);
+      console.log(false && false);
+
+      let hour2 = 12;
+      let minute = 30;
+
+      if (hour2 == 12 && minute == 30) {
+        alert("Time is 12:30");
+      }
+      // &&寻找第一个假植
+      console.log(1 && 2 && null && 3);
+      console.log(1 && 2 && 3);
+
+      // !非  result = !value
+      console.log(!true);
+      console.log(!0);
+
+      // ??空值合并运算符
+      // 当左侧的操作数为 null/undefined 时，返回其右侧操作数，否则返回左侧操作数
+      const foo = null ?? "default string";
+      console.log(foo);
+      const baz = 0 ?? 42;
+      console.log(baz);
+
+      let user1;
+      console.log(user1 ?? "匿名");
+      let user2 = "John";
+      console.log(user2 ?? "匿名");
+      //  ||返回第一个真值，&& 返回第一个已定义的值，优先级相同，&&可以用来为变量分配默认值
+      let height = 0;
+      console.log(height || 100);
+      console.log(height ?? 100);
+
+      alert(alert(1) && alert(2));
+      alert(null || (2 && 3) || 4);
+
+      let age2 = prompt("age", "");
+      // if (age2 >= 14 && age2 <= 90) {
+      //   alert("age在区间内");
+      // } else {
+      //   alert("age不在区间内");
+      // }
+      if (!(age2 >= 14 && age2 <= 90)) {
+        //   if(age2<14||age2>90)
+        alert("age不在区间内");
+      } else {
+        alert("age在区间内");
+      }
+
+      if (-1 || 0) alert("first");
+      if (-1 && 0) alert("second");
+      if (null || (-1 && 1)) alert("third");
+
+      let begin = prompt("Who's there", "");
+      if (begin === "admin") {
+        let pwd = prompt("password", "");
+        if (pwd === "master") {
+          alert("welcome");
+        } else if (pwd === "" || pwd === null) {
+          alert("canceled");
+        } else {
+          alert("wrong password");
+        }
+      } else if (begin === "" || begin === null) {
+        alert("canceled");
+      } else {
+        alert("I don't know you");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

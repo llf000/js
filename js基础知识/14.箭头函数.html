@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // let func = (arg1, arg2, ..., argN) => expression;
+      let sum = (a, b) => a + b;
+      console.log(sum(1, 4));
+
+      let age = prompt("What is your age?", 18);
+
+      let welcome =
+        age < 18 ? () => alert("Hello!") : () => alert("Greetings!");
+      welcome();
+
+      // 多行箭头函数必须{}，有return
+      let multiply = (x, n) => {
+        let result = x;
+        for (let i = 1; i < n; i++) {
+          result *= x;
+        }
+        return result;
+      };
+      console.log(multiply(2, 2));
+    </script>
+  </head>
+  <body></body>
+</html>
