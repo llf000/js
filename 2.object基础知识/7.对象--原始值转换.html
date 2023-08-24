@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Symbol.toPrimitive
+      let user1 = {
+        name: "John",
+        money: 1000,
+
+        [Symbol.toPrimitive](hint) {
+          console.log(`hint: ${hint}`);
+          return hint == "string" ? `{name: "${this.name}"}` : this.money;
+        },
+      };
+      console.log(user1);
+      console.log(+user1);
+      console.log(user1 + 500);
+
+      // toString/valueOf
+
+      let user2 = {
+        name: "HH",
+        money: 2000,
+        // 对于 hint="string"
+        toString() {
+          return `{name: "${this.name}"}`;
+        },
+        // 对于 hint="number" 或 "default"
+        valueOf() {
+          return this.money;
+        },
+      };
+
+      console.log(user2);
+      console.log(+user2);
+      console.log(user2 + 500);
+
+      let user3 = {
+        name: "Wahaha",
+        money: 10000,
+
+        toString() {
+          return this.name;
+        },
+      };
+      alert(user3);
+      console.log(user3);
+      console.log(user3 + 500);
+    </script>
+  </head>
+  <body></body>
+</html>

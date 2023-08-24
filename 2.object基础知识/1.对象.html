@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 创建对象 {key,value}
+      let obj1 = new Object();
+      let obj2 = {};
+
+      let user = {
+        name: "John",
+        age: 22,
+      };
+      console.log(user.name);
+      user.isAdmin = true;
+      console.log(user);
+      delete user.age;
+      console.log(user);
+      user["likes birds"] = true;
+      console.log(user["likes birds"]);
+      //   let key = prompt("what's your hobby", "hobby");
+      //   console.log(user[key]);
+
+      // 计算属性
+      let fruit = "apple";
+      let bag = {
+        [fruit]: 5,
+      };
+      console.log(bag.apple);
+
+      // in 属性存在性测试
+      console.log("name" in user);
+      console.log("gender" in user);
+
+      // for...in
+      let user2 = {
+        name: "HH",
+        age: 22,
+        isAdmin: false,
+      };
+
+      for (let key in user2) {
+        console.log(key);
+        console.log(user2[key]);
+      }
+
+      // 排序
+      let codes = {
+        49: "Germany",
+        41: "Switzerland",
+        44: "Great Britain",
+        1: "USA",
+      };
+
+      for (let code in codes) {
+        console.log(code);
+      }
+
+      let codes2 = {
+        "+49": "Germany",
+        "+41": "Switzerland",
+        "+44": "Great Britain",
+        // ..,
+        "+1": "USA",
+      };
+
+      for (let code in codes2) {
+        console.log(+code);
+      }
+
+      // 小练习
+      // 检查空对象
+      function isEmpty(obj) {
+        for (let key in obj) {
+          return false;
+        }
+        return true;
+      }
+      let hobby = {};
+      console.log(isEmpty(hobby));
+      console.log(isEmpty(user));
+
+      //对象属性求和
+      let salaries = {
+        John: 100,
+        Ann: 160,
+        Pete: 130,
+      };
+
+      function sumObj(obj) {
+        if (obj == {}) return 0;
+        let sum = 0;
+        for (let key in obj) {
+          sum += obj[key];
+        }
+        return sum;
+      }
+      console.log(sumObj(salaries));
+
+      // 将数值属性值都乘以2
+      let menu = {
+        width: 200,
+        height: 300,
+        title: "My menu",
+      };
+      function multiplyNumeric(obj) {
+        for (let key in obj) {
+          if (typeof obj[key] === "number") {
+            obj[key] *= 2;
+          }
+        }
+      }
+
+      let result = multiplyNumeric(menu);
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

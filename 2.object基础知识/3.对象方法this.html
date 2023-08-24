@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 方法 作用于对象属性的函数
+      "use strict";
+      let user1 = {
+        name: "John",
+        age: 30,
+      };
+
+      user1.sayHi = function () {
+        console.log("Hello!user1");
+      };
+
+      user1.sayHi();
+      // 更短
+      let user2 = {
+        sayHi() {
+          // 与 "sayHi: function(){...}" 一样
+          console.log("Hello!user2");
+        },
+      };
+      user2.sayHi();
+
+      // this关键字
+      let user3 = {
+        name: "Wahaha",
+        age: 30,
+
+        sayHi() {
+          console.log("Hello," + this.name);
+        },
+        sayHi2() {
+          console.log("Hello," + user3.name);
+        },
+      };
+
+      user3.sayHi();
+
+      let admin = user3;
+      user3 = null;
+      //   admin.sayHi2();
+      admin.sayHi();
+
+      // this不受控制，是在代码运行时计算出来的，取决于代码上下文
+      // 在没有对象的情况下调用：严格模式this == undefined，非严格模式全局对象
+      function sayHi() {
+        console.log(this);
+      }
+      sayHi();
+
+      //  箭头函数没有自己的 “this”
+      let user4 = {
+        firstName: "Ilya",
+        sayHi() {
+          let arrow = () => console.log(this.firstName);
+          arrow();
+        },
+      };
+
+      user4.sayHi();
+
+      // 小练习
+      // 在对象字面量使用this
+      function makeUser() {
+        return {
+          name: "John",
+          ref: this,
+        };
+      }
+
+      let user = makeUser();
+
+      //   console.log(user.ref.name); // undefined -- 报错Cannot read properties of undefined (reading 'name')
+
+      //  创建一个计算器
+      /*
+          创建一个有三个方法的 calculator 对象：
+          read() 提示输入两个值，并将其保存为对象属性，属性名分别为 a 和 b。
+          sum() 返回保存的值的和。
+          mul() 将保存的值相乘并返回计算结果。
+      */
+      let calculator = {
+        read() {
+          this.a = +prompt("a?", "");
+          this.b = +prompt("b?", "");
+        },
+        sum() {
+          return (this.sum = this.a + this.b);
+        },
+        mul() {
+          return (this.mul = this.a * this.b);
+        },
+      };
+      calculator.read();
+      console.log(calculator.sum());
+      console.log(calculator.mul());
+
+      // 链式调用
+      let ladder = {
+        step: 0,
+        up() {
+          this.step++;
+          return this; // 在每次调用后返回自身
+        },
+        down() {
+          this.step--;
+          return this;
+        },
+        showStep: function () {
+          console.log(this.step);
+          return this;
+        },
+      };
+
+      ladder.up().up().down().showStep().down().showStep();
+    </script>
+  </head>
+  <body></body>
+</html>

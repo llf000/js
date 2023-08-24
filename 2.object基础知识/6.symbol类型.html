@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      "use strict";
+      // 只有两种原始类型可以用作对象属性键：字符串类型,symbol类型
+      // symbol--唯一标识符，symbol 是带有可选描述的“原始唯一值”
+      let id1 = Symbol("id");
+      let id2 = Symbol("id");
+
+      console.log(id1 == id2); // false
+
+      // symbol 不会被自动转换为字符串
+      //   console.log(id2);
+      console.log(id2.toString());
+      console.log(id2.description);
+
+      // 隐藏属性
+      // 创建对象的“隐藏”属性，代码的任何其他部分都不能意外访问或重写这些属性
+      let user = {
+        name: "John",
+      };
+
+      let id = Symbol("id");
+
+      user[id] = 1;
+
+      user[id] = "Their id value";
+
+      console.log(user[id]);
+
+      // 对象字面量中的symbol:用 [] 括起来
+      let id3 = Symbol("id");
+      let user3 = {
+        name: "John",
+        [id3]: 123,
+      };
+      console.log(user3);
+
+      // symbol不参与for...in循环
+      // Object.keys(user) 会忽略它们,Object.assign会同时复制字符串和symbol属性
+      let id4 = Symbol("id");
+      let user4 = {
+        name: "John",
+        age: 30,
+        [id4]: 123,
+      };
+
+      let clone = Object.assign({}, user4);
+
+      for (let key in user4) console.log(key);
+
+      console.log("Direct: " + user4[id4]);
+
+      console.log(clone[id4]);
+
+      // 全局symbol
+      let id5 = Symbol.for("id");
+
+      let idAgain = Symbol.for("id");
+
+      console.log(id5 == idAgain);
+
+      // Symbol.keyFor
+      let sym = Symbol.for("name");
+      let sym2 = Symbol.for("id");
+
+      console.log(Symbol.keyFor(sym));
+      console.log(Symbol.keyFor(sym2));
+    </script>
+  </head>
+  <body></body>
+</html>

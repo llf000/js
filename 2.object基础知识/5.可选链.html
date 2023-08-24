@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // ?.
+      // 一种访问嵌套对象属性的安全的方式,即使中间的属性不存在，也不会出现错误
+      // 如果可选链 ?. 前面的值为 undefined 或者 null，它会停止运算并返回 undefined
+      // ?. 前的变量必须已声明
+      // ?. 不能用在赋值语句的左侧
+      let user = {};
+
+      console.log(user.address); // undefined
+      //   console.log(user.address.street);  // error
+      console.log(user?.address?.street); // undefined
+    </script>
+  </head>
+  <body></body>
+</html>

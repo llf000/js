@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 对象复制，复制的是引用
+      let a1 = {};
+      let b1 = a1;
+      console.log(a1 == b1);
+      console.log(a1 === b1);
+
+      let a2 = {};
+      let b2 = {};
+      console.log(a2 == b2);
+
+      // 克隆与合并 Object.assign
+      let user = { name: "John" };
+
+      let permissions1 = { canView: true };
+      let permissions2 = { canEdit: true };
+
+      Object.assign(user, permissions1, permissions2);
+      Object.assign(user, { name: "HH" });
+      console.log(user);
+
+      let clone = Object.assign({}, user);
+      console.log(clone);
+
+      // 深层克隆
+      let user2 = {
+        name: "John",
+        sizes: {
+          height: 182,
+          width: 50,
+        },
+      };
+
+      console.log(user2.sizes.height);
+
+      let clone2 = Object.assign({}, user2);
+
+      console.log(user2.sizes === clone2.sizes);
+
+      user2.sizes.width++;
+      console.log(clone2.sizes.width);
+
+      const user3 = {
+        name: "Wa",
+      };
+      user3.name = "Wahaha";
+      console.log(user3.name);
+    </script>
+  </head>
+  <body></body>
+</html>

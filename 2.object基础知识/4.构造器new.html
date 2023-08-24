@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 构造函数 以大写字母开头，new执行
+      function User1(name) {
+        this.name = name;
+        this.isAdmin = false;
+      }
+
+      let user1 = new User1("Jack");
+
+      console.log(user1.name); // Jack
+      console.log(user1.isAdmin); // false
+
+      // 构造器的return
+      // 通常构造器没有 return 语句，假如写了return：return返回的是一个对象，则返回这个对象；return 返回的是一个原始类型，则忽略
+      function BigUser() {
+        this.name = "Wahaha";
+
+        return { name: "Maomao" };
+      }
+
+      console.log(new BigUser().name);
+
+      function smallUser() {
+        this.name = "Wahaha";
+
+        return;
+      }
+
+      console.log(new smallUser().name);
+
+      // 构造器中的方法
+      function User(name) {
+        this.name = name;
+
+        this.sayHi = function () {
+          console.log("My name is: " + this.name);
+        };
+      }
+
+      let john = new User("John");
+
+      john.sayHi();
+
+      // 小练习
+      // 两个函数 —— 一个对象，创建像new A() == new B()这样的函数A和B
+      let obj = {};
+
+      function A() {
+        return obj;
+      }
+      function B() {
+        return obj;
+      }
+
+      let a = new A();
+      let b = new B();
+
+      console.log(a == b);
+
+      // 创建 new Calculator
+      /*
+          创建一个构造函数 Calculator，它创建的对象中有三个方法：
+            read() 使用 prompt 请求两个值并把它们记录在对象的属性中
+            sum() 返回这些属性的总和
+            mul() 返回这些属性的乘积
+       */
+      function Calculator() {
+        this.read = function () {
+          this.a = +prompt("a?", "");
+          this.b = +prompt("b?", "");
+        };
+
+        this.sum = function () {
+          return this.a + this.b;
+        };
+
+        this.mul = function () {
+          return this.a * this.b;
+        };
+      }
+      let calculator = new Calculator();
+      calculator.read();
+
+      console.log("Sum=" + calculator.sum());
+      console.log("Mul=" + calculator.mul());
+
+      // 创建 new Accumulator
+      /*
+         创建一个构造函数 Accumulator(startingValue)
+          将“当前 value”存储在属性 value 中。起始值被设置到构造器 startingValue 的参数
+          read() 方法应该使用 prompt 来读取一个新的数字，并将其添加到 value 中
+          换句话说，value 属性是所有用户输入值与初始值 startingValue 的总和
+       */
+      function Accumulator(startingValue) {
+        this.value = startingValue;
+        this.read = function () {
+          this.value += +prompt("value?", "");
+        };
+      }
+
+      let accumulator = new Accumulator(1);
+
+      accumulator.read();
+      accumulator.read();
+
+      console.log(accumulator.value);
+    </script>
+  </head>
+  <body></body>
+</html>
